@@ -17,11 +17,11 @@ import org.springframework.web.multipart.MultipartFile;
 @RestController  //此注解相当于是Controller和Responsebody的合体，返回值会自动进行json格式的转换 
 public class FileUploadController {
 
-	@RequestMapping(name = "/fileUpload")
+	@RequestMapping("/fileUpload")
 	public Map<String, String> fileUpload(MultipartFile fileName) throws Exception, IOException{
 		System.out.println(fileName.getOriginalFilename());
 		
-//		fileName.transferTo(new File("C:\\Arthur\\picture"+fileName.getOriginalFilename()));
+		fileName.transferTo(new File("C:\\Arthur\\picture\\iphone\\"+fileName.getOriginalFilename()));
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("msg", "uploaded");
 		return map;
